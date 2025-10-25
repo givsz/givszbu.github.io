@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포커 테이블탑 시뮬레이터</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="poker-table">
+            <!-- 상단 플레이어 구역 -->
+            <div class="player-area top">
+                <div class="player-info">
+                    <div class="player-name">플레이어 1</div>
+                    <div class="player-chips">칩: <span id="player1-chips">1000</span></div>
+                </div>
+                <div class="hand-area" id="player1-hand"></div>
+            </div>
+
+            <!-- 중앙 테이블 -->
+            <div class="center-area">
+                <div class="pot-area">
+                    <div class="pot-label">팟</div>
+                    <div class="pot-amount" id="pot-amount">0</div>
+                </div>
+                <div class="community-cards" id="community-cards">
+                    <div class="card-slot"></div>
+                    <div class="card-slot"></div>
+                    <div class="card-slot"></div>
+                    <div class="card-slot"></div>
+                    <div class="card-slot"></div>
+                </div>
+                <div class="dealer-button">D</div>
+            </div>
+
+            <!-- 하단 플레이어 구역 (나) -->
+            <div class="player-area bottom">
+                <div class="hand-area" id="player2-hand"></div>
+                <div class="player-info">
+                    <div class="player-name">나</div>
+                    <div class="player-chips">칩: <span id="player2-chips">1000</span></div>
+                </div>
+            </div>
+
+            <!-- 덱 영역 -->
+            <div class="deck-area" id="deck-area">
+                <div class="deck-pile" id="deck-pile">
+                    <div class="deck-card">DECK</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 컨트롤 패널 -->
+        <div class="control-panel">
+            <div class="game-controls">
+                <button id="new-game-btn" class="btn btn-primary">새 게임</button>
+                <button id="shuffle-btn" class="btn btn-secondary">섞기</button>
+                <button id="deal-btn" class="btn btn-secondary">딜</button>
+                <button id="flop-btn" class="btn btn-secondary">플랍</button>
+                <button id="turn-btn" class="btn btn-secondary">턴</button>
+                <button id="river-btn" class="btn btn-secondary">리버</button>
+            </div>
+
+            <div class="betting-controls">
+                <button id="fold-btn" class="btn btn-danger">폴드</button>
+                <button id="check-btn" class="btn btn-info">체크</button>
+                <button id="call-btn" class="btn btn-warning">콜</button>
+                <button id="raise-btn" class="btn btn-success">레이즈</button>
+                <input type="number" id="bet-amount" placeholder="베팅액" min="10" step="10" value="50">
+            </div>
+
+            <div class="hand-rank-display">
+                <div class="rank-label">현재 핸드:</div>
+                <div id="hand-rank" class="rank-value">-</div>
+            </div>
+        </div>
+
+        <!-- 정보 패널 -->
+        <div class="info-panel">
+            <h3>게임 상태</h3>
+            <div id="game-status">새 게임을 시작하세요</div>
+            <h3>포커 핸드 랭킹</h3>
+            <ol class="hand-rankings">
+                <li>로얄 플러시 (Royal Flush)</li>
+                <li>스트레이트 플러시 (Straight Flush)</li>
+                <li>포카드 (Four of a Kind)</li>
+                <li>풀하우스 (Full House)</li>
+                <li>플러시 (Flush)</li>
+                <li>스트레이트 (Straight)</li>
+                <li>트리플 (Three of a Kind)</li>
+                <li>투페어 (Two Pair)</li>
+                <li>원페어 (One Pair)</li>
+                <li>하이카드 (High Card)</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="poker.js"></script>
+</body>
+</html>
